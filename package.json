@@ -1,0 +1,24 @@
+{
+  "name": "an-cart",
+  "version": "1.0.0",
+  "description": "It' a super cart server repo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nshaik/an-cart-server.git"
+  },
+  "author": "AN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nshaik/an-cart-server/issues"
+  },
+  "homepage": "https://github.com/nshaik/an-cart-server#readme",
+  "devDependencies": {
+    "husky": "^8.0.1"
+  }
+}
