@@ -1,6 +1,6 @@
-const index_controller = require('../controllers/indexController');
-const indexRouter = require('express').Router();
+const indexController = require('../controllers/indexController');
+const indexRouter = require('express').Router(); //eslint-disable-line
 indexRouter.route('/')
-    .get(index_controller.index_list);
+    .get(indexController.index_list);
 
 module.exports = indexRouter;

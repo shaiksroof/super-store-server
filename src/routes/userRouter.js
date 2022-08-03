@@ -1,11 +1,11 @@
-const user_controller = require('../controllers/userController');
-const userRouter = require('express').Router();
+const userController = require('../controllers/userController');
+const userRouter = require('express').Router(); //eslint-disable-line
 userRouter.route('/')
-    .post(user_controller.add_user)
-    .get(user_controller.list_user);
+    .post(userController.add_user)
+    .get(userController.list_user);
 userRouter.route('/update')
-    .post(user_controller.update_user);
+    .post(userController.update_user);
 userRouter.route('/delete')
-    .post(user_controller.delete_user);
+    .post(userController.delete_user);
 
 module.exports = userRouter;

@@ -5,7 +5,6 @@ const indexRouter = require('./routes/indexRouter');
 const userRouter = require('./routes/userRouter');
 const errorHandler = require('./errorHandler');
 
-
 app.use(express.json());
 
 app.use('/', indexRouter);
