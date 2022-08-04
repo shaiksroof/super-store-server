@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
     "prepare": "husky install",
-    "lint-staged": "npm run format:check && npm run format:write && npm run lint:check && lint:fix",
+    "lint-staged": "npm run format:check && npm run lint:check",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
@@ -24,12 +24,11 @@
   },
   "homepage": "https://github.com/nshaik/an-cart-server#readme",
   "devDependencies": {
-    "eslint": "^8.21.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.14.0",
+    "prettier": "^2.6.2",
     "husky": "^8.0.1",
     "nodemon": "^2.0.19",
-    "prettier": "2.7.1"
+    "vue-eslint-parser": "^8.0.0"
   },
   "dependencies": {
     "dotenv": "^16.0.1",

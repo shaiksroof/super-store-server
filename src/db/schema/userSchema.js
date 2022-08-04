@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
   name: String,
@@ -7,8 +7,8 @@ const UserSchema = new Schema({
   phone: Number,
   role: {
     type: String,
-    enum: ['owner', 'manager', 'supervisor', 'basic'],
-  },
-});
+    enum: ["owner", "manager", "supervisor", "basic"]
+  }
+})
 
-module.exports = mongoose.model('User', UserSchema); ;
+module.exports = mongoose.model("User", UserSchema)
