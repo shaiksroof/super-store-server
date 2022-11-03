@@ -4,14 +4,15 @@
   "description": "It' a super cart server repo",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
     "prepare": "husky install",
     "lint-staged": "npm run format:check && npm run lint:check",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -25,14 +26,16 @@
   "homepage": "https://github.com/nshaik/an-cart-server#readme",
   "devDependencies": {
     "eslint": "^8.14.0",
-    "prettier": "^2.6.2",
     "husky": "^8.0.1",
     "nodemon": "^2.0.19",
+    "prettier": "^2.6.2",
     "vue-eslint-parser": "^8.0.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.5.0"
+    "mongoose": "^6.5.0",
+    "sqlite3": "^5.1.2"
   }
 }

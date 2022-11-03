@@ -1,15 +1,39 @@
 const express = require("express")
-const app = express()
-require("./db/conn")
-const indexRouter = require("./routes/indexRouter")
-const userRouter = require("./routes/userRouter")
+const cors = require("cors")
+const port = process.env.PORT || 3000
+const apiRouter = require("./api/index")
 const errorHandler = require("./errorHandler")
+const cluster = require("cluster")
+const totalCPUs = require("os").cpus().length
 
-app.use(express.json())
+if (cluster.isMaster) {
+  console.log(`Number of CPUs is ${totalCPUs}`)
+  console.log(`Master ${process.pid} is running`)
 
-app.use("/", indexRouter)
-app.use("/user", userRouter, errorHandler)
+  // Fork workers.
+  for (let i = 0; i < totalCPUs; i++) {
+    cluster.fork()
+  }
 
-app.listen(3000, () => {
-  console.log(`Server started @ ${3000}`)
-})
+  cluster.on("exit", (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`)
+    console.log("Let's fork another worker!")
+    cluster.fork()
+  })
+} else {
+  const app = express()
+  // console.log(`Worker ${process.pid} started`)
+
+  app.use(express.json())
+  app.use(
+    cors({
+      origin: "*"
+    })
+  )
+
+  app.use("/api", apiRouter, errorHandler)
+
+  app.listen(port, () => {
+    console.log(`Server started @ ${port}`)
+  })
+}

@@ -9,7 +9,10 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\src/server.js"
+      "program": "${workspaceFolder}\\src/server.js",
+      "restart": true,
+          "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon"
+
     }
   ]
 }

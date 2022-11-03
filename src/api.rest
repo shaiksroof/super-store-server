@@ -1,0 +1,154 @@
+GET http://localhost:3000/api/user/
+
+###
+POST http://localhost:3000/api/user/
+content-type: application/json
+
+{
+    "first_name": "Nabira",
+    "last_name": "Arsh",
+    "email": "nabira2@gmail.com",
+    "password": "asdlasd",
+    "phone": 123456789,
+    "role_id": 2
+}
+
+###
+GET http://localhost:3000/api/role/
+###
+POST http://localhost:3000/api/role/
+content-type: application/json
+
+{
+    "name": "Nabira",
+    "desc": "it's a sample",
+    "feature_id": 2
+}
+
+###
+GET http://localhost:3000/api/address/
+###
+POST http://localhost:3000/api/address/
+content-type: application/json
+
+{
+    "address_a": "address A",
+    "city":"city",
+    "country": "country",
+    "pincode": "pincode",
+    "address_b": "address_b",
+    "user_id":"user_id",
+    "primary_address": true,
+    "shipping_address": false
+}
+
+###
+GET http://localhost:3000/api/product/
+###
+GET http://localhost:3000/api/product/cloth
+###
+POST http://localhost:3000/api/product/
+content-type: application/json
+
+{
+    "name": "name",
+    "desc":"desc",
+    "sku":"sku",
+    "category":"cloth",
+    "url":"url",
+    "price":"price",
+    "discount_id":"discount_id"
+}
+
+###
+GET http://localhost:3000/api/cart-item/
+###
+POST http://localhost:3000/api/cart-item/
+content-type: application/json
+
+{
+    "session_id": "session_id",
+    "product_id": "product_id",
+    "quantity": "quantity"
+}
+
+###
+GET http://localhost:3000/api/category/
+###
+POST http://localhost:3000/api/category/
+content-type: application/json
+
+{
+    "name": "name",
+    "desc": "desc"
+}
+
+###
+GET http://localhost:3000/api/discount/
+###
+POST http://localhost:3000/api/discount/
+content-type: application/json
+
+{
+    "name": "name",
+    "desc": "desc",
+    "percent": "20"
+}
+
+###
+GET http://localhost:3000/api/feature/
+###
+POST http://localhost:3000/api/feature/
+content-type: application/json
+
+{
+    "name": "name",
+    "desc": "desc"
+}
+
+###
+GET http://localhost:3000/api/order/
+###
+POST http://localhost:3000/api/order/
+content-type: application/json
+
+{
+    "user_id":"user_id", 
+    "amount":"amount", 
+    "payment_id":"payment_id"
+}
+
+###
+GET http://localhost:3000/api/order-item/
+###
+POST http://localhost:3000/api/order-item/
+content-type: application/json
+
+{
+    "order_id":"order_id", 
+    "product_id":"product_id"
+}
+
+###
+GET http://localhost:3000/api/payments/
+###
+POST http://localhost:3000/api/payments/
+content-type: application/json
+
+{
+    "order_id":"1",
+    "amount":"payment",
+    "status":"payment",
+    "provider":"payment"
+}
+
+###
+GET http://localhost:3000/api/session/
+###
+POST http://localhost:3000/api/session/
+content-type: application/json
+
+{
+    "user_id":"1",
+    "total":"528"
+}
