@@ -20,7 +20,17 @@ module.exports = {
   // getAllByCategory: (category) => {
   //   return `SELECT id, name as title, desc, category, url, price, discount_id FROM product WHERE category= "${category}"`
   // }
+
   getAllByCategory: (category) => {
-    return `SELECTSELECT id, name as title, desc, category, url, price, discount_id FROM product WHERE category= "${category}"`
+    return `SELECT product.id,
+              product.name AS title,
+              product.[desc],
+              product.category,
+              product.url,
+              product.price,
+              discount.percent
+                  FROM product,
+                      discount
+                  WHERE product.category = "${category}" AND product.discount_id = discount.id`
   }
 }
