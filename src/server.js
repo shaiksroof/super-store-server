@@ -5,7 +5,6 @@ const apiRouter = require("./api/index")
 const errorHandler = require("./errorHandler")
 const cluster = require("cluster")
 const totalCPUs = require("os").cpus().length
-
 if (cluster.isMaster && false) {
   console.log(`Number of CPUs is ${totalCPUs}`)
   console.log(`Master ${process.pid} is running`)

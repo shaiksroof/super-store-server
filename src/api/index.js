@@ -45,6 +45,8 @@ router
   .route("/discount")
   .post(discountController.add)
   .get(discountController.getAll)
+  .delete(discountController.setDelete)
+router.route("/discount/percets").get(discountController.getPercents)
 
 router
   .route("/feature")
