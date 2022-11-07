@@ -28,7 +28,7 @@ router
   .route("/product")
   .post(productController.add)
   .get(productController.getAll)
-
+  .delete(productController.setDelete)
 router.route("/product/:category").get(productController.getAllByCategory)
 
 router
@@ -40,6 +40,7 @@ router
   .route("/category")
   .post(categoryController.add)
   .get(categoryController.getAll)
+  .delete(categoryController.setDelete)
 
 router
   .route("/discount")

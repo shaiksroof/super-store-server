@@ -7,7 +7,10 @@ module.exports = {
         query.setUpdate(id, label, description, percent, new Date().getTime()),
         (err) => {
           if (err) return next(err)
-          res.send("Discount Added!")
+          db.all(query.getLabels, (err, rows) => {
+            if (err) return next(err)
+            res.status(200).send(rows)
+          })
         }
       )
     } else {
@@ -24,7 +27,10 @@ module.exports = {
           ],
           (err) => {
             if (err) return next(err)
-            res.send("Discount Added!")
+            db.all(query.getLabels, (err, rows) => {
+              if (err) return next(err)
+              res.status(200).send(rows)
+            })
           }
         )
       })

@@ -59,6 +59,11 @@ content-type: application/json
     "price":"price",
     "discount_id":"discount_id"
 }
+###
+POST http://192.168.0.35:3000/api/product
+content-type: multipart/form-data; boundary=----WebKitFormBoundaryiLxmxBtQKTXYmmvu
+
+------WebKitFormBoundaryiLxmxBtQKTXYmmvu\r\nContent-Disposition: form-data; name="files[0]"; filename="ForNabira.jpg"\r\nContent-Type: image/jpeg\r\n\r\n\r\n------WebKitFormBoundaryiLxmxBtQKTXYmmvu\r\nContent-Disposition: form-data; name="files[1]"; filename="start logo.png"\r\nContent-Type: image/png\r\n\r\n\r\n------WebKitFormBoundaryiLxmxBtQKTXYmmvu\r\nContent-Disposition: form-data; name="files"\r\n\r\n[object File],[object File]\r\n------WebKitFormBoundaryiLxmxBtQKTXYmmvu\r\nContent-Disposition: form-data; name="title"\r\n\r\nABDC\r\n------WebKitFormBoundaryiLxmxBtQKTXYmmvu\r\nContent-Disposition: form-data; name="description"\r\n\r\nasdw\r\n------WebKitFormBoundaryiLxmxBtQKTXYmmvu--\r\n 
 
 ###
 GET http://localhost:3000/api/cart-item/

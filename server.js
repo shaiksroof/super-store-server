@@ -1,10 +1,15 @@
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT || 3000
-const apiRouter = require("./api/index")
-const errorHandler = require("./errorHandler")
+const path = require("path")
+const serveStatic = require("serve-static")
 const cluster = require("cluster")
 const totalCPUs = require("os").cpus().length
+
+const apiRouter = require("./src/api/index")
+const errorHandler = require("./src/errorHandler")
+
+global.appRoot = path.resolve(__dirname)
+
 if (cluster.isMaster && false) {
   console.log(`Number of CPUs is ${totalCPUs}`)
   console.log(`Master ${process.pid} is running`)
@@ -21,8 +26,9 @@ if (cluster.isMaster && false) {
   })
 } else {
   const app = express()
+  const port = process.env.PORT || 3000
   // console.log(`Worker ${process.pid} started`)
-
+  app.use(express.static("public"))
   app.use(express.json())
   app.use(
     cors({
@@ -30,6 +36,7 @@ if (cluster.isMaster && false) {
     })
   )
 
+  // Route divertion
   app.use("/api", apiRouter, errorHandler)
 
   app.listen(port, () => {
