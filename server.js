@@ -5,8 +5,9 @@ const serveStatic = require("serve-static")
 const cluster = require("cluster")
 const totalCPUs = require("os").cpus().length
 
-const apiRouter = require("./src/api/index")
-const errorHandler = require("./src/errorHandler")
+// const apiRouter = require("./src/api/index")
+const prismaRouter = require("./src/prisma_api/routes/main.router")
+const middleware = require("./src/middleware")
 
 global.appRoot = path.resolve(__dirname)
 
@@ -37,7 +38,10 @@ if (cluster.isMaster && false) {
   )
 
   // Route divertion
-  app.use("/api", apiRouter, errorHandler)
+  // app.use("/api", apiRouter, errorHandler)
+
+  //Prisma imple
+  app.use("/api", middleware.reqHandler, prismaRouter, middleware.resHandler)
 
   app.listen(port, () => {
     console.log(`Server started @ ${port}`)

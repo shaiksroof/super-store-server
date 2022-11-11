@@ -78,37 +78,61 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/api/category/
-###
-POST http://localhost:3000/api/category/
+POST http://localhost:3000/api/category
 content-type: application/json
 
 {
-    "name": "name",
-    "desc": "desc"
+    "label": "label2",
+    "description": "description"
+}
+###
+GET http://localhost:3000/api/category/
+###
+GET http://localhost:3000/api/category/10
+###
+PUT http://localhost:3000/api/category/
+content-type: application/json
+
+{
+    "label": "Just Updated",
+    "id": 10
+}
+###
+DELETE http://localhost:3000/api/category/
+content-type: application/json
+
+{
+    "id": 10
 }
 
-###
-GET http://localhost:3000/api/discount/
 ###
 POST http://localhost:3000/api/discount/
 content-type: application/json
 
 {
-    "name": "name",
-    "desc": "desc",
-    "percent": "20"
+    "label": "label2",
+    "description": "description",
+    "percentage": 20
 }
-
 ###
-GET http://localhost:3000/api/feature/
+GET http://localhost:3000/api/discount/
 ###
-POST http://localhost:3000/api/feature/
+GET http://localhost:3000/api/discount/7
+###
+PUT http://localhost:3000/api/discount/
 content-type: application/json
 
 {
-    "name": "name",
-    "desc": "desc"
+    "label": "Just Updated",
+    "id": 7,
+    "percentage": 20
+}
+###
+DELETE http://localhost:3000/api/discount/
+content-type: application/json
+
+{
+    "id": 7
 }
 
 ###
@@ -156,4 +180,22 @@ content-type: application/json
 {
     "user_id":"1",
     "total":"528"
+}
+
+###
+POST http://localhost:3000/api/user/
+content-type: application/json
+
+{
+    "email":"faiz@gmail.com",
+    "password":"password"
+}
+
+###
+POST http://localhost:3000/api/login/
+content-type: application/json
+
+{
+    "email":"faiz@gmail.com",
+    "password":"password"
 }
